@@ -1,6 +1,6 @@
 {
   "name": "@scandipwa/eslint-plugin-scandipwa-guidelines",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Eslint rules for ScandiPWA",
   "keywords": [
     "eslint",
