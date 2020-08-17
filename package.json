@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "eslint-traverse": "^1.0.0",
+    "pascalcase": "^1.0.0",
     "requireindex": "~1.1.0"
   },
   "devDependencies": {
