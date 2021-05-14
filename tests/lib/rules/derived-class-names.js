@@ -10,26 +10,50 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const { RuleTester } = require('eslint');
-const rule = require('../../../lib/rules/derived-class-names');
+const { RuleTester } = require("eslint");
+const rule = require("../../../lib/rules/derived-class-names");
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
-ruleTester.run('derived-class-names', rule, {
-    valid: [
-        // give me some code that won't trigger a warning
-    ],
+const ruleTester = new RuleTester({
+  parserOptions: { ecmaVersion: 2015 },
+  env: {
+    es6: true,
+  },
+});
+ruleTester.run("derived-class-names", rule, {
+  valid: [
+    {
+      code: "class Hello {}",
+      filename: "Hello.js",
+    },
+    {
+      code: "class FooterComponent {}",
+      filename: "Footer.component.js",
+    },
+    {
+      code: "class MyTest {}",
+      filename: "my.test.js",
+    },
+  ],
 
-    invalid: [
-        {
-            code: "class Hello { // assuming file name is Goodbye.component.js",
-            errors: [{
-                message: "Fill me in.",
-                type: "Me too"
-            }]
-        }
-    ]
+  invalid: [
+    {
+      code: "class Hello {}",
+      filename: "Goodbye.js",
+      errors: [{rule:"derived-class-names"}],
+    },
+    {
+      code: "class FooterComponent {}",
+      filename: "Footer.container.js",
+      errors: [{rule:"derived-class-names"}],
+    },
+    {
+      code: "class Test {}",
+      filename: "my.test.js",
+      errors: [{rule:"derived-class-names"}],
+    },
+  ],
 });
