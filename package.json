@@ -10,7 +10,7 @@
   "author": "Jegors Batovs (yegor@scandipwa.com)",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests --recursive"
+    "test": "mocha tests --recursive test **/*.test.js"
   },
   "dependencies": {
     "eslint-traverse": "^1.0.0",
